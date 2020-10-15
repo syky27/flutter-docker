@@ -42,7 +42,7 @@ ENV ANDROID_COMPILE_SDK=29
 ENV ANDROID_BUILD_TOOLS=29.0.0
 ENV ANDROID_SDK_TOOLS=3859397
 ENV FLUTTER_CHANNEL=stable
-ENV FLUTTER_VERSION=1.20.1-${FLUTTER_CHANNEL}
+ENV FLUTTER_VERSION=1.22.1-${FLUTTER_CHANNEL}
 # install some needed dependencies
 # -y will auto confirm the command
 # to keep the container as small as possible, clean all will delete 
@@ -70,7 +70,7 @@ RUN wget --quiet --output-document=android-sdk.zip https://dl.google.com/android
 ENV ANDROID_HOME=/opt/android-sdk-linux
 ENV PATH=$PATH:/opt/android-sdk-linux/platform-tools/
 # Download Flutter SDK
-RUN wget --quiet --output-document=flutter.tar.xz https://storage.googleapis.com/flutter_infra/releases/${FLUTTER_CHANNEL}/linux/flutter_linux_v${FLUTTER_VERSION}.tar.xz \
+RUN wget --quiet --output-document=flutter.tar.xz https://storage.googleapis.com/flutter_infra/releases/stable/linux/flutter_linux_${FLUTTER_VERSION}.tar.xz \
     && tar xf flutter.tar.xz -C /opt \
     && rm flutter.tar.xz
 # make Flutter available for CI
